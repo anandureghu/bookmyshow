@@ -1,5 +1,5 @@
-const { PORT, ENV } = process.env;
+const { PORT, NODE_ENV } = process.env;
 module.exports = {
   port: PORT,
-  env: ENV,
+  env: NODE_ENV,
 };

@@ -16,6 +16,7 @@ const connectToDB = () => {
     .authenticate()
     .then(() => {
       logger.info("connected to database");
+      sequelize.sync({ alter: true });
     })
     .catch((err) => {
       logger.error("connection to database failed >>> ", err);
@@ -24,4 +25,5 @@ const connectToDB = () => {
 
 module.exports = {
   connectToDB,
+  db: sequelize,
 };
