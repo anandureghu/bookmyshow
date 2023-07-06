@@ -3,7 +3,6 @@ const { db } = require("../utils/connection");
 const City = require("./city.model");
 const Theatre = require("./theatre.model");
 const Studio = require("./studio.model");
-const Show = require("./show.model");
 
 const CityTheatre = db.define("CityTheatre", {
   id: {
@@ -13,9 +12,13 @@ const CityTheatre = db.define("CityTheatre", {
   },
 });
 
-CityTheatre.hasMany(City);
-CityTheatre.hasMany(Theatre);
+// CityTheatre.hasMany(Theatre);
+// Theatre.belongsTo(CityTheatre);
+
+// CityTheatre.hasMany(City);
+// City.belongsTo(CityTheatre);
+
 CityTheatre.hasMany(Studio);
-CityTheatre.belongsTo(Show);
+Studio.belongsTo(CityTheatre);
 
 module.exports = CityTheatre;

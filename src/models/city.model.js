@@ -1,6 +1,5 @@
 const { DataTypes } = require("sequelize");
 const { db } = require("../utils/connection");
-const CityTheatre = require("./city-theatre.model");
 
 const City = db.define("City", {
   id: {
@@ -16,7 +15,5 @@ const City = db.define("City", {
     type: DataTypes.INTEGER,
   },
 });
-
-City.belongsTo(CityTheatre);
 
 module.exports = City;

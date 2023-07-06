@@ -1,6 +1,5 @@
 const { DataTypes } = require("sequelize");
 const { db } = require("../utils/connection");
-const CityTheatre = require("./city-theatre.model");
 const Show = require("./show.model");
 
 const Movie = db.define("Movie", {
@@ -38,6 +37,7 @@ const Movie = db.define("Movie", {
   },
 });
 
-Movie.belongsTo(Show);
+Movie.hasMany(Show);
+Show.belongsTo(Movie);
 
 module.exports = Movie;

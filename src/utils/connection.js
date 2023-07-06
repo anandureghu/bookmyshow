@@ -16,7 +16,17 @@ const connectToDB = () => {
     .authenticate()
     .then(() => {
       logger.info("connected to database");
-      sequelize.sync({ alter: true });
+      sequelize
+        .sync({ alter: true })
+        .then(() => {
+          logger.warn("applying db changes");
+        })
+        .catch((err) => {
+          logger.error("error while applying db changes >>> ", err);
+        })
+        .finally(() => {
+          logger.info("completed applying db changes");
+        });
     })
     .catch((err) => {
       logger.error("connection to database failed >>> ", err);

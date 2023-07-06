@@ -1,7 +1,6 @@
 const { DataTypes } = require("sequelize");
 const { db } = require("../utils/connection");
 const CityTheatre = require("./city-theatre.model");
-const Movie = require("./movie.model");
 
 const Show = db.define("Show", {
   id: {
@@ -24,6 +23,6 @@ const Show = db.define("Show", {
 });
 
 Show.hasMany(CityTheatre);
-Show.hasMany(Movie);
+CityTheatre.belongsTo(Show);
 
 module.exports = Show;

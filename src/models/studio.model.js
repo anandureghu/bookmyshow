@@ -1,7 +1,5 @@
 const { DataTypes } = require("sequelize");
 const { db } = require("../utils/connection");
-const Movie = require("./movie.model");
-const CityTheatre = require("./city-theatre.model");
 
 const Studio = db.define("Studio", {
   id: {
@@ -18,7 +16,5 @@ const Studio = db.define("Studio", {
     allowNull: false,
   },
 });
-
-Studio.belongsTo(CityTheatre);
 
 module.exports = Studio;

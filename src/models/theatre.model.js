@@ -1,7 +1,6 @@
 const { DataTypes } = require("sequelize");
 const { db } = require("../utils/connection");
-const CityTheatre = require("./city-theatre.model");
-const Studio = require("./studio.model");
+const City = require("./city.model");
 
 const Theatre = db.define("Theatre", {
   id: {
@@ -13,12 +12,8 @@ const Theatre = db.define("Theatre", {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  city: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
 });
 
-Theatre.belongsTo(CityTheatre);
+City.hasMany(Theatre);
 
 module.exports = Theatre;
