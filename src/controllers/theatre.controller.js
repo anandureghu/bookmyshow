@@ -42,7 +42,19 @@ const AddNewTheatre = async (req, res) => {
     });
 };
 
+const GetAllTheatreInACity = async (req, res) => {
+  const cityId = req.params.cityId;
+  try {
+    theatreService.getTheatresInACity(cityId).then((data) => {
+      res.send(data).status(httpStatus.OK);
+    });
+  } catch (error) {
+    res.send(httpStatus.INTERNAL_SERVER_ERROR).send(new InternalServerError());
+  }
+};
+
 module.exports = {
   GetAllTheatre,
   AddNewTheatre,
+  GetAllTheatreInACity,
 };

@@ -18,8 +18,14 @@ const addNewTheatre = async (theatre) => {
   return newTheatre;
 };
 
+const getTheatresInACity = async (cityId) => {
+  const theatres = Theatre.findAll({ CityId: cityId });
+  return theatres;
+};
+
 module.exports = {
   getTheatre,
   getAllTheatre,
   addNewTheatre,
+  getTheatresInACity,
 };

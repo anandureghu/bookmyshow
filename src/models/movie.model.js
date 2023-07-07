@@ -27,6 +27,7 @@ const Movie = db.define("Movie", {
   type: {
     type: DataTypes.ENUM,
     values: ["2D", "3D"],
+    defaultValue: "2D",
   },
   certificate: {
     type: DataTypes.ENUM,

@@ -13,11 +13,11 @@ const sequelize = new Sequelize({
 
 const connectToDB = () => {
   sequelize
-    .authenticate()
+    .authenticate({ logging: false })
     .then(() => {
       logger.info("connected to database");
       sequelize
-        .sync({ alter: true })
+        .sync({ alter: true, logging: true })
         .then(() => {
           logger.warn("applying db changes");
         })

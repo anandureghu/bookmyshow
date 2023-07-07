@@ -1,6 +1,6 @@
 const { DataTypes } = require("sequelize");
 const { db } = require("../utils/connection");
-const CityTheatre = require("./city-theatre.model");
+const Theatre = require("./theatre.model");
 
 const Show = db.define("Show", {
   id: {
@@ -8,12 +8,8 @@ const Show = db.define("Show", {
     autoIncrement: true,
     primaryKey: true,
   },
-  showDate: {
+  showDateTime: {
     type: DataTypes.DATE,
-    allowNull: false,
-  },
-  showTime: {
-    type: DataTypes.TIME,
     allowNull: false,
   },
   price: {
@@ -22,7 +18,7 @@ const Show = db.define("Show", {
   },
 });
 
-Show.hasMany(CityTheatre);
-CityTheatre.belongsTo(Show);
+Theatre.hasMany(Show);
+Show.belongsTo(Theatre);
 
 module.exports = Show;

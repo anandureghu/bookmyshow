@@ -14,6 +14,7 @@ app.use(bodyParser.json());
 try {
   app.use("/api/v1/city", routers.cityRouter);
   app.use("/api/v1/movies", routers.movieRouter);
+  app.use("/api/v1/shows", routers.showRouter);
   app.use("/api/v1/auth", routers.authRouter);
   app.use("/api/v1/theatres", routers.theatreRouter);
 } catch (error) {

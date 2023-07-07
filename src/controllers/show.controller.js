@@ -1,11 +1,11 @@
 const httpStatus = require("http-status");
-const movieService = require("../services/movie.service");
+const showService = require("../services/show.service");
 const { InternalServerError } = require("../utils/errors");
 const logger = require("../utils/logger");
 
-const GetAllMovies = (req, res) => {
+const GetAllShows = (req, res) => {
   try {
-    movieService.getAllMovies().then((data) => {
+    showService.getAllShows().then((data) => {
       res.send(data).status(httpStatus.OK);
     });
   } catch (error) {
@@ -13,13 +13,13 @@ const GetAllMovies = (req, res) => {
   }
 };
 
-const CreateMovie = (req, res) => {
-  const movie = req.body;
-  movieService
-    .createMovie(movie)
+const CreateShow = (req, res) => {
+  const show = req.body;
+  showService
+    .createShow(show)
     .then((data) => {
       res.status(httpStatus.CREATED).send({
-        msg: "successfully added new movie",
+        msg: "successfully added new show",
         data,
       });
     })
@@ -31,16 +31,16 @@ const CreateMovie = (req, res) => {
     });
 };
 
-const GetMovie = (req, res) => {};
+const GetShow = (req, res) => {};
 
-const UpdateMovie = (req, res) => {};
+const UpdateShow = (req, res) => {};
 
-const DeleteMovie = (req, res) => {};
+const DeleteShow = (req, res) => {};
 
 module.exports = {
-  GetAllMovies,
-  GetMovie,
-  CreateMovie,
-  UpdateMovie,
-  DeleteMovie,
+  GetAllShows,
+  GetShow,
+  CreateShow,
+  UpdateShow,
+  DeleteShow,
 };
