@@ -19,8 +19,7 @@ const CreateShow = (req, res) => {
     .createShow(show)
     .then((data) => {
       res.status(httpStatus.CREATED).send({
-        msg: "successfully added new show",
-        data,
+        msg: "successfully added new shows",
       });
     })
     .catch((error) => {

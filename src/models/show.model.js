@@ -8,7 +8,11 @@ const Show = db.define("Show", {
     autoIncrement: true,
     primaryKey: true,
   },
-  showDateTime: {
+  showDate: {
+    type: DataTypes.DATE,
+    allowNull: false,
+  },
+  endDate: {
     type: DataTypes.DATE,
     allowNull: false,
   },
