@@ -9,7 +9,11 @@ const Show = db.define("Show", {
     primaryKey: true,
   },
   showDate: {
-    type: DataTypes.DATE,
+    type: DataTypes.DATEONLY,
+    allowNull: false,
+  },
+  showTime: {
+    type: DataTypes.TIME,
     allowNull: false,
   },
   endDate: {

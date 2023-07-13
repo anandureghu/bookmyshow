@@ -1,8 +1,9 @@
 const Show = require("../models/show.model");
+const Movie = require("../models/movie.model");
 
 const getAllShows = () => {
-  let Shows = Show.findAll();
-  return Shows;
+  let shows = Show.findAll();
+  return shows;
 };
 
 const createShow = async (show) => {
@@ -10,12 +11,13 @@ const createShow = async (show) => {
   startDate = new Date(startDate);
   endDate = new Date(endDate);
   let showDate = new Date(startDate);
-  
+
   // create shows from start date to end date
   while (showDate <= endDate) {
     await Show.create({
       price: parseFloat(price),
       showDate,
+      showTime: showDate,
       endDate,
       MovieId: movieId,
       TheatreId: theatreId,
@@ -23,6 +25,17 @@ const createShow = async (show) => {
     showDate.setDate(showDate.getDate() + 1);
   }
   return true;
+};
+
+const getShowsInATheatre = (theatreId, date) => {
+  // console.log(new Date(date));
+  return Show.findAll({
+    where: {
+      TheatreId: theatreId,
+      showDate: new Date(date),
+    },
+    include: Movie
+  });
 };
 
 const getShow = () => {};
@@ -37,4 +50,5 @@ module.exports = {
   createShow,
   updateShow,
   deleteShow,
+  getShowsInATheatre,
 };

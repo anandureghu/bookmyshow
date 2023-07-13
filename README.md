@@ -1,7 +1,7 @@
 # BookMyShow
 
-> Note: this project is created only for learning **sql** and how **transactions** work 💪. validation and error handling may be weaker 😅. 
+> _Note: this project is created only for learning **SQL** and how **TRANSACTION** work 💪. validation and error handling may be weaker 😅._ 
 >
-> -Happy Coding 😁❣️
+> _-Happy Coding 😁❣️_
 
 

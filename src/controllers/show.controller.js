@@ -30,6 +30,21 @@ const CreateShow = (req, res) => {
     });
 };
 
+const GetAllShowInATheatre = (req, res) => {
+  console.log("first");
+  console.log("params: ", req.params);
+  console.log("query: ", req.query);
+  const theatreId = req.params.theatreId;
+  const date = req.query.date;
+  try {
+    showService.getShowsInATheatre(theatreId, date).then((data) => {
+      res.send(data).status(httpStatus.OK);
+    });
+  } catch (error) {
+    res.send(httpStatus.INTERNAL_SERVER_ERROR).send(new InternalServerError());
+  }
+};
+
 const GetShow = (req, res) => {};
 
 const UpdateShow = (req, res) => {};
@@ -42,4 +57,5 @@ module.exports = {
   CreateShow,
   UpdateShow,
   DeleteShow,
+  GetAllShowInATheatre,
 };
