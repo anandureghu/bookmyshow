@@ -28,7 +28,6 @@ const createShow = async (show) => {
 };
 
 const getShowsInATheatre = (theatreId, date) => {
-  // console.log(new Date(date));
   return Show.findAll({
     where: {
       TheatreId: theatreId,

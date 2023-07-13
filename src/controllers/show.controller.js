@@ -31,9 +31,6 @@ const CreateShow = (req, res) => {
 };
 
 const GetAllShowInATheatre = (req, res) => {
-  console.log("first");
-  console.log("params: ", req.params);
-  console.log("query: ", req.query);
   const theatreId = req.params.theatreId;
   const date = req.query.date;
   try {
