@@ -1,0 +1,31 @@
+{
+  "name": "bookmyshow",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "nodemon src/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anandureghu/bookmyshow.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anandureghu/bookmyshow/issues"
+  },
+  "homepage": "https://github.com/anandureghu/bookmyshow#readme",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "http-status": "^1.6.2",
+    "mysql2": "^3.4.1",
+    "nodemon": "^2.0.22",
+    "sequelize": "^6.32.1",
+    "winston": "^3.9.0"
+  }
+}
