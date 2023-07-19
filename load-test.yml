@@ -1,0 +1,24 @@
+config:
+  target: "http://localhost:3000/api/v1"
+  phases:
+    - duration: 30 # Test duration in seconds
+      arrivalRate: 10 # New virtual users per second
+  defaults:
+    headers:
+      Content-Type: "application/json"
+scenarios:
+  - name: Get All City
+    flow:
+      - get:
+          url: "/city"
+          expect:
+            statusCode: 200
+  - name: Create City
+    flow:
+      - post:
+          url: "/city"
+          json:
+            name: "{{ $randomString() }}"
+            value: "{{ $randomNumber(600000,699999) }}"
+          expect:
+            statusCode: 201
