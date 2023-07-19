@@ -38,6 +38,7 @@ const GetAllShowInATheatre = (req, res) => {
       res.send(data).status(httpStatus.OK);
     });
   } catch (error) {
+    logger.error(error);
     res.send(httpStatus.INTERNAL_SERVER_ERROR).send(new InternalServerError());
   }
 };
